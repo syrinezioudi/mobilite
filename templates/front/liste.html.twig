@@ -1,0 +1,38 @@
+{% extends 'base-new.html.twig' %}
+
+    {% block style %}
+        {{ parent() }}
+    {% endblock %}
+
+    {% block stylesheets %}
+        {{ parent() }}
+    {% endblock %}
+
+
+{% block title %}Les offres de mobilité {% endblock %}
+
+{% block middle %}
+    <h4>Liste des offres de mobilité</h4>
+    <div class="event-row">
+        <a class="btn btn-danger" href="{{ path('tri') }}">Tri par date</a>
+        {% for offre in tabOffres %}
+            <div class="event-column card m-5">
+                <div class="event-card">
+                    <img src="{{ asset('uploads/offre/' ~ offre.img) }}"
+                         alt={{ offre.titre }}
+                         width="200"
+                         height="200"/>
+                    <div class="event-card-container">
+                        <h4><b>{{ offre.titre }}</b></h4>
+                        <h4>{{ offre.lieu }}</h4>
+                        <p>{{ offre.date|date("m/d/Y") }}</p>
+                        <a href="{{ path('app_addp',{'idOffre':offre.id}) }}"
+                           style="margin: auto!important; display: block; width: 100%;" class="btn btn-danger"
+                           tabindex="-1" role="button">Participer</a>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

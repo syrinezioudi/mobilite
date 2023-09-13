@@ -1,0 +1,69 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Liste des postulations{% endblock %}
+
+    {% block style %}
+    {{parent()}}
+    {% endblock %}
+
+    {% block stylesheets %}
+    {{parent()}}
+    {% endblock %}
+
+{% block body %}
+
+
+   
+
+    <h4>Liste des postulations</h4>  
+
+    <thead>
+    <tr>
+        <td>Id de l'offre</td>
+        <td>Nom de l'ecole partenaire</td>
+        <td>Date de début des études</td>
+        <td>Description</td>
+        <td>Affiche</td>
+        <td>Adresse de l'école partenaire</td>
+         <td>update</td>
+        <td>delete</td>
+        <td>Liste des étudiants</td>
+
+
+
+    </tr>
+    </thead>
+
+    <tbody id="search-results">
+        {% for offre in tabParticipants %}
+        <tr>
+
+            <td>{{ offre.id }}</td>
+            <td>{{ offre.titre }}</td>
+            <td>{{offre.date|date("m/d/Y") }}</td>
+            <td>{{ offre.description }}</td>
+        <td>
+          <img
+            src="{{ asset('uploads/offre/' ~ offre.img) }}"
+            alt=""
+            width="100"
+            height="100"
+          />
+        </td>
+            <td>{{ offre.lieu }}</td>
+           
+
+            <br>
+        </tr>
+        {% else %}
+            <li>No results found</li>
+        {% endfor %}
+    </tbody>
+    <a class="btn btn-primary" href="{{path('trie')}}">Tri par date</a>
+     
+    </table>
+    </div>
+    
+
+
+{% endblock %}

@@ -1,0 +1,180 @@
+/*======================================*
+** rp-stylesheet.css
+** ------------------------------------------------------------*
+** Created: 15-01-07 (dd-mm-yy)
+** Author: Jenna Smith (growldesign.co.uk)
+** Template: RedPepper
+**======================================*/
+
+
+/*------------------------------------------------------------*
+**  Global
+**------------------------------------------------------------*/
+body {
+	background: #600 url(../img/bg.png) repeat-x;
+	font-family: Geneva, Arial, Helvetica, sans-serif;
+	font-size: 83%; 
+	text-align: center;
+	margin: 0; 
+	padding: 0;
+	color: #555;
+	}
+img { border: 0; }
+ul, 
+p { line-height: 1.4em; font-size: 1em; margin: 15px 0 20px; }
+h2 { margin: 0; color: #fff; font-weight: normal; padding: 45px 170px 47px 30px; font-size: 1.9em; }
+h3, h4 { font-size: 2em; font-weight: normal; color: #000; margin: 0; }
+h4 { font-size: 1.7em; }
+a { color: #f00; text-decoration: none; border-bottom: 1px solid #FFC4C4; }		
+a:hover { border-color: #f00; }
+.l1 { border: none !important; margin: 0 !important; }
+
+ul { 
+	padding: 0;
+	list-style-type: none;
+	line-height: 1.8em;
+	}
+ul li { background: url(../img/bullet.gif) no-repeat 0% 52%; padding-left: 25px; }
+		
+/*------------------------------------------------------------*
+**  Container
+**------------------------------------------------------------*/		
+#container {
+	width: 780px;
+	margin: 0 auto;
+	text-align: left;
+	}
+* html #container { width: 740px; }	
+	
+/*------------------------------------------------------------*
+**  Header
+**------------------------------------------------------------*/			
+#header { width: 780px; }
+#header:after	{ 
+	content: "."; 
+	display: block; 
+	clear: both; 
+	visibility: hidden; 
+	height: 0;
+	}
+#header h1 { font-weight: normal; font-size: 2em; padding: 1.2em 0 28px 1.1em; margin: 0; }
+#header h1 a { color: #fff; text-decoration: none; border: none; }
+#header h1 a span { color: #f00; }
+
+/** Navigation **/
+#header ul {
+	margin: -6.9em 0 0 0; 
+	padding: 0 10px;
+	list-style-type: none;
+	float: right;
+	}
+* html #header ul { padding: 0; }	
+#header ul li { 
+	float: left;
+	text-align: center;
+	margin: 0 10px;
+	background: transparent;
+	padding: 0;
+	}	
+#header ul li a { 
+	display: block; 
+	text-decoration: none; 
+	color: #fff; 
+	font-size: 1.2em; 
+	padding: 2em 10px; 
+	border-bottom: 0.3em solid #3F0000; 
+	}	
+#header ul li a:hover { border-color: #f00; }	
+#header ul li a.on,
+#header ul li a.on:hover { border-color: #fff; }		
+
+/*------------------------------------------------------------*
+**  Body
+**------------------------------------------------------------*/
+#body { background: #fff url(../img/body_.png) repeat-x; }
+#body div { background: transparent url(../img/body_left.png) no-repeat; }
+#body div div { background: transparent url(../img/body_right.png) no-repeat 100% 0%; height: 1%; padding: 0 20px 30px; }
+* html #body div div { width: 100%; }
+#body div div:after	{ 
+	content: "."; 
+	display: block; 
+	clear: both; 
+	visibility: hidden; 
+	height: 0;
+	}	
+#body div div div { background-image: none; padding: 0; }
+
+/*------------------------------------------------------------*
+**  Content
+**------------------------------------------------------------*/
+#body #content { 
+	float: right; 
+	height: auto !important;
+	min-height: 300px; 
+	height: 300px;
+	width: 475px;
+	background: #fff url(../img/content_shadow.png) no-repeat;	
+	padding: 23px 25px 0 38px;
+	}
+#body #content ul.img { list-style-type: none; padding: 0; margin: 0; width: 100%; }	
+#body #content ul.img:after	{ 
+	content: "."; 
+	display: block; 
+	clear: both; 
+	visibility: hidden; 
+	height: 0;
+	}	
+#body #content ul.img li { float: left; margin-left: 10px; margin-bottom: 10px; padding: 0; background: transparent; }
+#body #content ul.img li a { border: none; }
+#body #content ul.img li img { border: 7px solid #900; padding: 1px; }	
+#body #content ul.img li a:hover img { border-color: #000; }	
+
+form { background-color: #f4f4f4; padding: 20px; margin-top: 20px;  }
+form p { margin: 10px 0; }
+form p label { width: 100px; display: block; float: left; }
+form p input, 
+form p textarea { border: 1px solid #999; padding: 4px; font-family: Geneva, Arial, Helvetica, sans-serif; font-size: 1.3em; width: 240px; }
+textarea { height: 100px; } 
+input.btn { width: auto; }
+	
+/*------------------------------------------------------------*
+**  Breadcrumb
+**------------------------------------------------------------*/
+#body #content .breadcrumb {  
+	background-color: #600; 
+	background-repeat: repeat-y; 
+	margin-bottom: 20px;
+	}
+
+/** specific pages **/
+#body #content .home { background-image: url(../img/header_home.jpg); }
+#body #content .about { background-image: url(../img/header_about.jpg); }
+#body #content .services { background-image: url(../img/header_services.jpg); }
+#body #content .portfolio { background-image: url(../img/header_portfolio.jpg); }
+#body #content .contact { background-image: url(../img/header_contact.jpg); }
+
+/*------------------------------------------------------------*
+**  Submenu
+**------------------------------------------------------------*/
+#body #sub { 
+	float: left; 
+	margin: 33px 0 0 0;		
+	background-color: #fff; 
+	height: auto !important;
+	min-height: 267px; 
+	height: 267px;
+	width: 172px;
+	padding: 20px 10px 0 20px;
+	}
+
+/*------------------------------------------------------------*
+**  Footer
+**------------------------------------------------------------*/
+#footer { 
+	width: 780px;
+	background: transparent url(../img/footer_.gif) repeat-x;
+	}
+#footer a { border: none; }	
+#footer p { color: #fff; padding: 10px; margin: 0; }
+#footer span { float: right; margin: 0 10px 0 0; }
+

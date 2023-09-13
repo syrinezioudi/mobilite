@@ -1,0 +1,145 @@
+{% extends 'baseadmin.html.twig' %}
+
+{% block title %}Détails du participant
+{% endblock %}
+
+{% block body %}
+	<div style="position: absolute; margin-left: 500px; margin-top: 100px">
+		<div style="display: flex; justify-content: space-between; padding: 20px;">
+			<div class="col-6">
+				<h4>Détails du participant</h4>
+				<table class="table table-striped">
+					<tr>
+						<td>Id</td>
+						<td>{{ participant.id }}</td>
+					</tr>
+					<tr>
+						<td>Participant</td>
+						<td>{{ participant.getUser }}</td>
+					</tr>
+					<tr>
+						<td>Nom</td>
+						<td>{{ participant.nomp }}</td>
+					</tr>
+					<tr>
+						<td>Prénom</td>
+						<td>{{ participant.prenom }}</td>
+					</tr>
+					<tr>
+						<td>Email</td>
+						<td>{{ participant.email }}</td>
+					</tr>
+					<tr>
+						<td>Note</td>
+						{% if participant.note.score %}
+							<td>{{ participant.note.score }}</td>
+						{% else %}
+							<td>null</td>
+						{% endif %}
+					</tr>
+					<tr>
+						<td>Date de Participation</td>
+						<td>{{ participant.dateParticipation|date("m/d/Y") }}</td>
+					</tr>
+				</table>
+				<div>
+					<a href="{{ path('app_accept_part', {'idParticipant': participant.id}) }}" class="btn btn-success">
+						Accepter
+					</a>
+					<a href="{{ path('app_refuse_part', {'idParticipant': participant.id}) }}" class="btn btn-danger">
+						Refuser
+					</a>
+				</div>
+			</div>
+			<div class="col-6" style="margin-left: 5rem">
+				<h4>Fichiers</h4>
+				<table class="table table-striped">
+					<tr>
+						<td>Nom du fichier</td>
+						<td>Image</td>
+					</tr>
+					<tr>
+						<td>RBac</td>
+						<td>
+							{% if participant.RBac is not null %}
+								<img src="{{ asset('uploads/postulations/' ~ participant.RBac) }}" alt="RBac Image" width="100">
+							{% else %}
+								No image available
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>R1</td>
+						<td>
+							{% if participant.R1 is not null %}
+								<img src="{{ asset('uploads/postulations/' ~ participant.R1) }}" alt="R1 Image" width="100">
+							{% else %}
+								No image available
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>R2</td>
+						<td>
+							{% if participant.R2 is not null %}
+								<img src="{{ asset('uploads/postulations/' ~ participant.R2) }}" alt="R2 Image" width="100">
+							{% else %}
+								No image available
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>R3</td>
+						<td>
+							{% if participant.R3 is not null %}
+								<img src="{{ asset('uploads/postulations/' ~ participant.R3) }}" alt="R3 Image" width="100">
+							{% else %}
+								No image available
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>R4</td>
+						<td>
+							{% if participant.R4 is not null %}
+								<img src="{{ asset('uploads/postulations/' ~ participant.R4) }}" alt="R4 Image" width="100">
+							{% else %}
+								No image available
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>RL1</td>
+						<td>
+							{% if participant.RL1 is not null %}
+								<img src="{{ asset('uploads/postulations/' ~ participant.RL1) }}" alt="RL1 Image" width="100">
+							{% else %}
+								No image available
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>RL2</td>
+						<td>
+							{% if participant.RL2 is not null %}
+								<img src="{{ asset('uploads/postulations/' ~ participant.RL2) }}" alt="RL2 Image" width="100">
+							{% else %}
+								No image available
+							{% endif %}
+						</td>
+					</tr>
+					<tr>
+						<td>RL3</td>
+						<td>
+							{% if participant.RL3 is not null %}
+								<img src="{{ asset('uploads/postulations/' ~ participant.RL3) }}" alt="RL3 Image" width="100">
+							{% else %}
+								No image available
+							{% endif %}
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</div>
+{% endblock %}

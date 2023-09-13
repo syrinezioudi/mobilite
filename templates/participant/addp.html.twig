@@ -1,0 +1,154 @@
+{% extends 'baseadmin.html.twig' %}
+    {% block style %}
+<link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css"
+  integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ=="
+  crossorigin=""
+/>
+    <style>
+
+#map {
+  height: 300px;
+  width: 80%;
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+.marker-position {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  padding: 10px;
+  font-weight: 700;
+  background-color: #fff;
+}
+    
+    </style>
+
+    {% endblock %}
+{% block stylesheets %}
+{{ parent() }}
+
+{% endblock %}
+
+
+{% block title  %}Les offres de mobilité {% endblock %}
+
+{% block body %}
+<div style="position: absolute; margin-left: 400px; margin-top: 100px; width: 60%">
+	<!-- Form Start -->
+	<div class="col-sm-120 col-xl-60">
+		<div class="bg-light rounded h-100 p-4">
+			<h6 class="mb-4">Ajouter votre postulation</h6>
+			{{form_start(formParticipant,{'attr': {'novalidate': 'novalidate'}}
+			)}}
+			<div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Nom </label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.nomp,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.nomp) }}
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Prenom</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.prenom,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.prenom) }}
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Email</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.email,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.email) }}
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Relevé de note du bac</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.RBac,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.RBac) }}
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Relevé de notes du 1ere année</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.R1,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.R1) }}
+				</div>
+			</div>
+			<div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Relevé de notes du 2eme année</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.R2,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.R2) }}
+				</div>
+			</div>
+            <div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Relevé de notes du 3eme année</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.R3,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.R3) }}
+				</div>
+			</div>
+            <div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Relevé de notes du 4eme année</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.R4,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.R4) }}
+				</div>
+			</div>
+            <div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Relevé de notes du 1ere année license</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.RL1,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.RL1) }}
+				</div>
+			</div>
+            <div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Relevé de notes du 2eme année license</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.RL2,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.RL2) }}
+				</div>
+			</div>
+            <div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Relevé de notes du 3eme année</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.RL3,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.RL3) }}
+				</div>
+			</div>
+            <div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Niveau en Françcais</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.niveauF,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.niveauF) }}
+				</div>
+			</div>
+            <div class="row mb-3">
+				<label class="col-sm-2 col-form-label">Niveau en anglais</label>
+				<div class="col-sm-10">
+					{{ form_widget(formParticipant.niveauA,{ 'attr': {'class': 'form-control'} }) }}
+					{{ form_errors(formParticipant.niveauA) }}
+				</div>
+			</div>
+			
+
+</script>
+			<br>
+			<a href="{{path('app_front')}}" class="mt-2">Liste des offres de mobilité</a>
+			<br>
+			<br>
+			<div style="text-align: right;">
+				{{ form_widget(formParticipant.submit,{ 'attr': {'class': 'btn btn-primary'} }) }}
+			</div>
+			{{form_end(formParticipant)}}
+		</div>
+	</div>
+	<!-- Form End -->
+    </div>
+{% endblock %}

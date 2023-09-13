@@ -1,0 +1,179 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}SPORTIFLY{% endblock %}</title>
+    {% block stylesheets %}
+        <!-- ICONSCOUT CDN -->
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+        <!-- STYLESHEET -->
+        <link rel="stylesheet" href="{{ asset('frontoffice/css/style.css') }}">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
+    {% endblock %}
+</head>
+
+{% block navbar %}
+    <div class="body">
+        <nav>
+            <div class="container">
+                <div class="logo">
+                    <img src="{{ asset('frontoffice/images/logo.png') }}" alt="">
+                </div>
+
+                <div class="search-bar">
+                    <i class="uil uil-search"></i>
+                    <input type="search" placeholder="Search for Offres">
+                </div>
+                <div class="create">
+                    <label class="btn btn-primary" for="create-post">Add Offre</label>
+                    <div class="profile-picture">
+                        <img src="{{ asset('frontoffice/images/profil.jpg') }}" alt="">
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+{% endblock %}
+
+
+
+{% block body %}
+    <div class="body">
+        <main>
+            <div class="container">
+                <!--======================== LEFT ==========================-->
+                {% block left %}
+                    <div class="left">
+                        <a href="#" class="profile">
+                            <div class="profile-picture">
+                                <img src="{{ asset('frontoffice/images/messi.jpg') }}" alt="">
+                            </div>
+                            <div class="handle">
+                                <h4>Lionel messi</h4>
+                                <p class="text-muted">
+                                    @legend
+                                </p>
+                            </div>
+                        </a>
+
+
+                        <!-------------------- SIDEBAR ------------------------->
+                        <div class="sidebar">
+                            <a class="menu-item active">
+                                <span><i class="uil uil-gift"></i></span>
+                                <h3>Mes Offres</h3>
+                            </a>
+                            <a class="menu-item">
+                                <span><i class="uil uil-compass"></i></span>
+                                <h3>Explore</h3>
+                            </a>
+                            <a class="menu-item" id="notifications">
+                                <span><i class="uil uil-bell"><small class="notification-count">9+</small></i></span>
+                                <h3>Notifications</h3>
+                                <!-------------------- NOTIFICATION POPUP ---------------->
+                                <div class="notifications-popup">
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="{{ asset('frontoffice/images/profile-2.jpg') }}" alt="">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>Keke Benjamin</b> Reserver votre Offre
+                                            <small class="text-muted">2 DAYS AGO</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="{{ asset('frontoffice/images/profile-3.jpg') }}" alt="">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>John Doe</b> commented on your post
+                                            <small class="text-muted">1 HOUR AGO</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="{{ asset('frontoffice/images/profile-4.jpg') }}" alt="">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>Mary Oppong</b> and <b>283 others </b> liked your post
+                                            <small class="text-muted">4 MINUTES AGO</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="{{ asset('frontoffice/images/profile-5.jpg') }}" alt="">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>Doris Y. Lartey</b> commented on a post you are tagged in
+                                            <small class="text-muted">2 DAYS AGO</small>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <!-------------------- END NOTIFICATION POPUP ---------------->
+                            </a>
+
+                            <a class="menu-item">
+                                <span><i class="uil uil-compass"></i></span>
+                                <h3>Reservation</h3>
+                            </a>
+                            <a class="menu-item">
+                                <span><i class="uil uil-schedule"></i></span>
+                                <h3>Planning</h3>
+                            </a>
+                            <a class="menu-item" id="theme">
+                                <span><i class="uil uil-palette"></i></span>
+                                <h3>Theme</h3>
+                            </a>
+
+                        </div>
+                        <!------------------- END OF SIDEBAR -------------------->
+                        <label for="create-post" class="btn btn-primary">Create Post</label>
+                    </div>
+                {% endblock %}
+
+                <!------------------- END OF LEFT -------------------->
+                {% block middle %}
+                    <div class="middle">
+                        <!--======================== MIDDLE ==========================-->
+
+                        <!--======================== END OF MIDDLE ==========================-->
+                    </div>
+                    <!------------------------------- END OF FEEDS ------------------------------------>
+
+                {% endblock %}
+
+
+                <!--======================== RIGHT ==========================-->
+                {% block right %}
+
+                {% endblock %}
+                <!--====================== END OF RIGHT ==========================-->
+
+            </div>
+        </main>
+
+        {% block popup %}
+
+        {% endblock %}
+    </div>
+{% block javascripts %}
+    <script src="{{ asset('frontoffice/js/index.js') }}"></script>
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+            integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+            crossorigin="anonymous"></script>
+
+{% endblock %}
+{% endblock %}
+
+
+</html>
